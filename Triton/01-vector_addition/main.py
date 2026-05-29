@@ -30,7 +30,7 @@ def add_vectors(
     # Because we need it for the load and store operations. We will use it to load the data from the input vectors and store the results in the output vector.
 
     # Create a mask to guard memory operations against out of bounds accesses.
-    mask = offsets < n_elemnts
+    mask = offsets < n_elements
 
     # Load x and y from DRAM, masking out any extra elements in case the input is not a multiple of block size.
     x = tl.load(x_ptr + offsets, mask=mask)
@@ -55,7 +55,7 @@ def add(x: torch.Tensor, y: torch.Tensor):
     # We can tune this parameter to achieve better performance. A common choice is 1024.
     # For CUDA it is analoguous to the number of threads per block OR CUDA grid size.
 
-    grid = lambda meta: (triton.cdiv(n_elemnts, meta['BLOCK_SIZE']),)
+    grid = lambda meta: (triton.cdiv(n_elements, meta['BLOCK_SIZE']),)
 
     # NOTE:
     # - Each torch.tensor object is implicitly converted into a pointer to its first element.
