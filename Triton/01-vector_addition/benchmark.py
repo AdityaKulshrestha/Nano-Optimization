@@ -13,7 +13,7 @@ from main import add
         line_arg='provider',   # Argument name to use for grouping the results with different lines.    
         line_vals=['triton', 'torch'],
         line_names=['Triton', 'Torch'],
-        styles=[('blue', '-'), ('orange', '-')]
+        styles=[('blue', '-'), ('orange', '-')],
         ylabel='GB/s',        # Label for the y-axis.
         plot_name="vector_addition_performance",    # Name for the generated plot.
         args={},    
