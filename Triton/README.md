@@ -10,5 +10,5 @@
     `source venv/bin/activate`
 
 3. Install torch and triton
-    `uv pip install torch --torch-backend=xpu/auto/cpu`
+    `uv pip install torch numpy --torch-backend=xpu/auto/cpu`
 
