@@ -5,6 +5,9 @@ import triton.language as tl
 from main import add
 
 
+DEVICE = triton.runtime.driver.active.get_active_torch_device()
+
+
 @triton.testing.perf_report(
     triton.testing.Benchmark(
         x_names=['size'],       # Argument names to use as an x-axis for the plot.
