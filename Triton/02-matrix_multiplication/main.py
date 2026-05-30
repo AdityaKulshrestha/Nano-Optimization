@@ -204,7 +204,7 @@ def matmul(a, b, activation=""):
         ACTIVATION=activation
     )
 
-    return C
+    return c
 
 if __name__ == "__main__":
     torch.manual_seed(0)
