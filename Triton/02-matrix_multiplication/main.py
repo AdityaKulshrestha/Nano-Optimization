@@ -4,7 +4,7 @@ import triton
 import triton.language as tl
 
 
-DEVICE = triton.runtime.driver.activate.get_active_torch_device()
+DEVICE = triton.runtime.driver.active.get_active_torch_device()
 
 
 def is_cuda():
