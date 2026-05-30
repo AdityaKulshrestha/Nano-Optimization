@@ -19,6 +19,7 @@ for fp8_inputs in [False, True]:
             x_vals=[128 * i for i in range(2, 33)],     # Different possible values for `x_name`
             line_arg='provider',
             line_vals=['triton'] if fp8_inputs else [ref_lib.lower(), 'triton'],  # Argument name to use for grouping the results with different lines
+            line_names=['Triton (FP8)' if fp8_inputs else 'Triton', ref_lib],  # Legend for the lines
             styles=[("green", "-"), ("blue", "-")],
             ylabel="TFLOPS", 
             plot_name="matmul-performance-" + 
