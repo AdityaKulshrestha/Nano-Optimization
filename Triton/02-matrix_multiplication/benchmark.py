@@ -5,7 +5,9 @@ import triton.language as tl
 
 from main import matmul, is_cuda
 
+DEVICE = triton.runtime.driver.active.get_active_torch_device()
 TORCH_HAS_FP8 = hasattr(torch, "float8_e5m2")
+
 ref_lib = 'cuBLAS' if is_cuda() else 'rocBLAS'
 
 configs = []
