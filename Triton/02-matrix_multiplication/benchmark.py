@@ -17,7 +17,7 @@ for fp8_inputs in [False, True]:
         triton.testing.Benchmark(
             x_names=["M", "N", "K"],  # Argument names to use as an x-axis for the plot
             x_vals=[128 * i for i in range(2, 33)],     # Different possible values for `x_name`
-            line_args='provider',
+            line_arg='provider',
             line_vals=['triton'] if fp8_inputs else [ref_lib.lower(), 'triton'],  # Argument name to use for grouping the results with different lines
             styles=[("green", "-"), ("blue", "-")],
             ylabel="TFLOPS", 
