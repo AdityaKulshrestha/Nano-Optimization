@@ -40,9 +40,9 @@ def benchmark(M, N, K, provider, fp8_inputs):
     b = torch.randn((K, N), device=DEVICE, dtype=torch.float16)
 
     if TORCH_HAS_FP8 and fp8_inputs:
-        a = a.to(torch.float8_e5m2)
+        a = a.to(torch.float8_e5m2).contiguous()
         b = b.T
-        b = b.to(torch.float8_e5m2)
+        b = b.to(torch.float8_e5m2).contiguous()
 
     quantiles = [0.5, 0.2, 0.8]
     if provider == ref_lib.lower():
