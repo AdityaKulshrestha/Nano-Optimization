@@ -3,7 +3,7 @@ import torch
 import triton
 import triton.language as tl
 
-from main import matmul
+from main import matmul, is_cuda, TORCH_HAS_FP8
 
 ref_lib = 'cuBLAS' if is_cuda() else 'rocBLAS'
 
